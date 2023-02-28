@@ -5,6 +5,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
 
 /**
  * A utility class for the ParkShuttle system.
@@ -59,7 +61,10 @@ public class ParkShuttle {
 	 */
 	public static List<Person> mergeTwoShuttles(List<Person> persons1, List<Person> persons2) {
 		// TODO 7: Implement this method.
-		return null;
+		List<Person> unique =
+				Stream.of(persons1, persons2).flatMap(List::stream).filter(s -> !s.getId().equals(s.getId()))
+				.collect(Collectors.toList());
+		return unique;
 	}
 
 	/**
