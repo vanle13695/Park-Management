@@ -1,5 +1,6 @@
 package de.tum.in.ase;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -33,7 +34,7 @@ public class ParkShuttle {
 	 */
 	public static String getPersonsInfo(List<Person> persons) {
 		// TODO 5: Implement this method.
-		return persons.stream().map(x -> String.format(x.getId() + x.getFirstName() + x.getLastName())).collect(Collectors.toList()).toString();
+		return persons.stream().map(x -> x.toString()).collect(Collectors.joining("\n"));
 	}
 
 	/**
@@ -45,7 +46,7 @@ public class ParkShuttle {
 	 */
 	public static List<Person> filterPassenger(List<Person> persons) {
 		// TODO 6: Implement this method.
-		return null;
+		return persons.stream().filter(x -> x instanceof Passenger).collect(Collectors.toList());
 	}
 
 	/**
