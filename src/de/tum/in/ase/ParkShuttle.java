@@ -77,6 +77,7 @@ public class ParkShuttle {
 	 */
 	public static List<Person> sortPersonsById(List<Person> persons) {
 		// TODO 8: Implement this method.
-		return null;
+	return persons.stream().sorted((x, y) -> x.getId().compareTo(y.getId()))
+				.collect(Collectors.toList());
 	}
 }
