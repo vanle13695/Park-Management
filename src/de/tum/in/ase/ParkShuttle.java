@@ -61,10 +61,12 @@ public class ParkShuttle {
 	 */
 	public static List<Person> mergeTwoShuttles(List<Person> persons1, List<Person> persons2) {
 		// TODO 7: Implement this method.
-		List<Person> unique =
-				Stream.of(persons1, persons2).flatMap(List::stream).filter(s -> !s.getId().equals(s.getId()))
-				.collect(Collectors.toList());
-		return unique;
+		return new ArrayList<>((Stream.of(persons1, persons2)
+				.flatMap(List::stream)
+				.collect(Collectors.toMap(Person::getId,
+						d -> d,
+						(Person x, Person y) -> x == null ? y : x))
+				.values()));
 	}
 
 	/**
