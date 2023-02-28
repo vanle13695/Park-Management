@@ -19,6 +19,10 @@ public class Operator extends Person {
 	@Override
 	public void enterShuttle(Shuttle shuttle) {
 		// TODO 3: Implement this method.
+		if(shuttle.getOperator() == null) {
+			shuttle.setOperator(this);
+		}
+		else throw new IllegalArgumentException("shuttle already has an operator");
 	}
 
 	/**
@@ -34,6 +38,6 @@ public class Operator extends Person {
 	@Override
 	public String toString() {
 		// TODO 4: Implement this method.
-		return null;
+		return "Operator: " + "<" + getId() + ">" + getFirstName() + getLastName();
 	}
 }

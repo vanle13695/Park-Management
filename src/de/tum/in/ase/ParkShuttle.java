@@ -3,6 +3,7 @@ package de.tum.in.ase;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 /**
  * A utility class for the ParkShuttle system.
@@ -32,7 +33,7 @@ public class ParkShuttle {
 	 */
 	public static String getPersonsInfo(List<Person> persons) {
 		// TODO 5: Implement this method.
-		return null;
+		return persons.stream().map(x -> String.format(x.getId() + x.getFirstName() + x.getLastName())).collect(Collectors.toList()).toString();
 	}
 
 	/**

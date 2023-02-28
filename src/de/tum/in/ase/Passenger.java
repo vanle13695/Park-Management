@@ -19,6 +19,10 @@ public class Passenger extends Person {
 	@Override
 	public void enterShuttle(Shuttle shuttle) {
 		// TODO 1: Implement this method.
+		if(!shuttle.getPassengers().contains(this)) {
+			shuttle.getPassengers().add(this);
+		}
+		else throw new IllegalArgumentException("passenger is already added to that shuttle");
 	}
 
 	/**
@@ -34,6 +38,6 @@ public class Passenger extends Person {
 	@Override
 	public String toString() {
 		// TODO 2: Implement this method.
-		return null;
+		return "Passenger: " + "<" + getId() + ">" + getFirstName() + getLastName();
 	}
 }
